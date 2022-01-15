@@ -1,5 +1,9 @@
+@import url(./components/ItemCount/ItemCount.css);
+
 .App {
   text-align: center;
+  align-items: center;
+
 }
 
 .App-logo {
