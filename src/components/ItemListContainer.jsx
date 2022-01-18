@@ -1,7 +1,9 @@
+import ItemList from "./ItemList"
+
 const ItemListContainer  = ({greeting}) =>{
 return(
 
-    <h1>{greeting}</h1>
+    <ItemList />
 )
 
 }
