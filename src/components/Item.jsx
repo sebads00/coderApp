@@ -1,10 +1,11 @@
 import Card from "react-bootstrap/Card"
 import { ListGroup, ListGroupItem } from "react-bootstrap"
 import ItemCount from "./ItemCount/ItemCount"
+import Col from 'react-bootstrap/Col'
 
 const Item = ({product}) => {
 return ( <>
-
+<Col sm>
 <Card style={{ width: '18rem' }}>
   <Card.Img variant="top" src={product.img}/>
   <Card.Body>
@@ -15,7 +16,7 @@ return ( <>
   </Card.Body>
   <ListGroup className="list-group-flush">
     <ListGroupItem>${product.price}</ListGroupItem>
-    <ListGroupItem><ItemCount key={product.id} stock={5} initial={1} /></ListGroupItem>
+    <ListGroupItem><ItemCount key={product.id} stock={product.stock} initial={1} /></ListGroupItem>
      
   </ListGroup>
   <Card.Body>
@@ -24,6 +25,8 @@ return ( <>
     
   </Card.Body>
 </Card>
+</Col>
+<br />
 </>
 )
 }
