@@ -7,7 +7,7 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Theme from "./components/Theme"
 import CartWidget from './components/CartWidget';
-
+import ItemDetail from "./components/ItemDetail/ItemDetail"
 
 
 function App() {
@@ -15,14 +15,14 @@ function App() {
   return(
     <div className="App">
           <NavBar />
-
-         {/*  <Theme/> */}
-      <Container>
+      {/* <Container>
         <Row>
         <ItemListContainer />
         </Row>
   
-      </Container>
+      </Container> */}
+
+      <ItemDetail/>
     </div>
   );
 }

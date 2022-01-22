@@ -1,5 +1,21 @@
-.Counter{
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;    
+:root{
+    --LightGrey: hsl(223, 64%, 98%);
+}
+
+.CounterContainer{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: baseline;
+    justify-items: center;
+    background-color: var(--LightGrey);  
+    border-radius: 10%;
+    width: 10rem;
+}
+.CounterBtn{
+    height: 100%;
+    width: 100%;
+    border: none;
+    background-color: var(--LightGrey);
+    color: var(--Orange);
+    font-size: 2rem;
 }

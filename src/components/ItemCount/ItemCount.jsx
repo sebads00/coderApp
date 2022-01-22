@@ -7,19 +7,19 @@ const ItemCount = ({stock, initial}) => {
     
     const sumar = () => { if(counter < stock){
         setCounter (counter + 1)
+    }else {
+        alert("No hay mas en stock")
     };
     }
-
     const restar = () => { if(counter > initial){
         setCounter (counter - 1)
     };
     }
 return (
-<div className="Counter">
-    
-    <Button onClick={restar} variant="success">-</Button>
+<div className="CounterContainer">
+    <button className="CounterBtn"  onClick={restar} variant="success">-</button>
     <p>{counter}</p>
-    <Button onClick={sumar} variant="success">+</Button> 
+    <button className="CounterBtn" onClick={sumar} variant="success">+</button> 
 
 </div>
 )

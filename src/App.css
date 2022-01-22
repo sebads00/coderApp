@@ -1,4 +1,10 @@
 @import url(./components/ItemCount/ItemCount.css);
+@import url(./components/ItemDetail/ItemDetail.css);
+
+* {
+  font-family: 'Kumbh Sans', sans-serif;
+}
+
 
 .App {
   text-align: center;
@@ -36,6 +42,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
