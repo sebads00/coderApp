@@ -4,12 +4,10 @@ import {Container, Row} from "react-bootstrap"
 const ProductsPage = () => {
     return(
         <>
-        <h1>products</h1>
         <Container>
             <Row>
             <ItemListContainer />
         </Row>
-
       </Container>
         </>
     )

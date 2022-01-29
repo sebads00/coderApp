@@ -10,6 +10,7 @@ import ItemDetail from "./components/ItemDetail/ItemDetail"
 import { BrowserRouter , Routes, Route } from "react-router-dom"
 import ProductsPage from "./pages/ProductsPage"
 import AboutPage from "./pages/AboutPage"
+import ProductDetailPage from "./pages/ProductDetailPage"
 
 
 
@@ -24,8 +25,12 @@ function App() {
           <Route path="/">
             <Route index element={<HomePage />} />
             <Route path="/products" element={<ProductsPage />}/>
-            <Route path="/about" element={<AboutPage />}/>
+              <Route path="/about" element={<AboutPage />}/>
           </Route>
+          <Route path="/products">
+            <Route index element={<ProductsPage/>}/>
+            <Route path=":id" element={<ProductDetailPage/>}/>
+            </Route>
         </Routes>
     </BrowserRouter> 
 
@@ -35,15 +40,6 @@ function App() {
   );
 }
 export default App;
-
-<ItemDetail/>
-
-   {/* <Container>
-        <Row>
-        <ItemListContainer />
-        </Row>
-  
-      </Container> */}
 
 
 
