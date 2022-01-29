@@ -1,4 +1,4 @@
-import { getProducts, product } from "../product"
+import { getProducts } from "../product"
 import { useEffect, useState } from "react"
 import Item from "./Item"
 import Spinner from "react-bootstrap/Spinner"

@@ -1,14 +1,21 @@
 @import url(./components/ItemCount/ItemCount.css);
 @import url(./components/ItemDetail/ItemDetail.css);
+@import url(./components/NavBar/NavBar.css);
 
 * {
   font-family: 'Kumbh Sans', sans-serif;
+  text-decoration: none;
+  list-style: none;
+  color: none;
+
 }
-
-
+a {
+  text-decoration: none;
+}
 .App {
   text-align: center;
   align-items: center;
+  justify-content: center;
 
 }
 

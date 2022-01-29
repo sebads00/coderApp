@@ -12,16 +12,14 @@
     .ItemDetailContainer {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        place-content: center;
         align-items: center;
-        gap: 3rem;
         justify-items: center;
-        height: 100vh;
+        height: 80vh;
     }
 
     .ItemDetailImg {
-        height: 20rem;
-        width: 20rem;
+        height: 30rem;
+        width: 30rem;
     }
 
     .ItemDetailImg img {
@@ -33,25 +31,26 @@
         display: flex;
         align-items: flex-start;
         flex-direction: column;
-        gap: 1rem;
+        gap: 1.5rem;
     }
 
     .ItemDetailName {
-        font-size: 3rem;
+        font-size: 4rem;
         font-weight: 600;
     }
 
     .ItemDetailDesc {
         text-align: start;
         font-weight: 400;
-        font-size: 1rem;
+        font-size: 1.5rem;
+        max-width: 600px;
         color: var(--Grey);
     }
 
     .ItemDetailPrice {
-        font-size: 2rem;
+        font-size: 2.5rem;
         font-weight: 600;
-
+        
     }
 
     .ItemDetailBtn {
@@ -61,7 +60,7 @@
         border: none;
         align-items: center;
         color: white;
-        width: 15rem;
+        width: 18rem;
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;

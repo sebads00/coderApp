@@ -1,0 +1,45 @@
+.NavBarContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.NavBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid var(--Grey);
+    width: 80%;
+    margin-bottom: 2rem;
+}
+
+.NavBarLinks {
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-start;
+    align-items: center;
+    width: 40%;
+    gap: 2rem;
+}
+
+.NavBarLinks a {
+    text-decoration: none;
+    color: var(--Grey);
+    font-size: 18px;
+}
+.NavBarLogo a{
+    font-weight: 600;
+    color: black;
+    font-size: 27px;
+}
+.NavBarLinks a :hover{
+    color: none;
+}
+.Cart{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    
+}
