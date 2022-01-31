@@ -13,7 +13,7 @@ const ItemDetail = ({product}) => {
             <div className="ItemDetail">
                 <h1 className="ItemDetailName">{product.name}</h1>
                 <p className="ItemDetailDesc">{product.description}</p>
-                <span className="ItemDetailPrice">{product.price}</span>
+                <span className="ItemDetailPrice">${product.price}</span>
             <div className="ItemDetailBtnContainer">
                 <ItemCount initial={1} stock={5} />
                 <button className="ItemDetailBtn"><CartWidget />Agregar al carrito</button>    

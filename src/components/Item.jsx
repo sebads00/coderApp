@@ -19,7 +19,7 @@ return ( <>
   </ListGroup>
   <Card.Body>
     <Card.Link href="#">Agregar al carrito</Card.Link>
-    <Card.Link> <Link to="">Detalles</Link></Card.Link>
+    <Card.Link> <Link to={`/products/${product.id}`}>Detalles</Link></Card.Link>
 
   </Card.Body>
 </Card>
