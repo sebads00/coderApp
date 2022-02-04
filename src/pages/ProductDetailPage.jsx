@@ -20,7 +20,7 @@ const ItemDetailPage = () => {
       })
       .finally(() => setLoading(false));
   }, [id]);
-  console.log(products);
+  
   return (
       <>
       {loading ? (<Spinner animation="border" variant="secondary" />)

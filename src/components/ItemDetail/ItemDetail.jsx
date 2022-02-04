@@ -1,9 +1,15 @@
 import CartWidget from "../CartWidget"
 import ItemCount from "../ItemCount/ItemCount"
+import { useState } from "react";
+
 
 const ItemDetail = ({product}) => {
-    
-    
+    const[quantity, setQuantity] = useState(1);
+
+    function onAdd(quantityToAdd) {
+    setQuantity(quantityToAdd)
+    console.log(quantity)
+}
     return(
     <>
     <div className="ItemDetailContainer">
@@ -15,8 +21,7 @@ const ItemDetail = ({product}) => {
                 <p className="ItemDetailDesc">{product.description}</p>
                 <span className="ItemDetailPrice">${product.price}</span>
             <div className="ItemDetailBtnContainer">
-                <ItemCount initial={1} stock={5} />
-                <button className="ItemDetailBtn"><CartWidget />Agregar al carrito</button>    
+                <ItemCount initial={1} stock={product.stock} onAdd={onAdd} />   
             </div>    
             </div>
     </div>
