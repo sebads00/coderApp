@@ -2,6 +2,7 @@ import { getProducts } from "../product"
 import { useEffect, useState } from "react"
 import Item from "./Item"
 import Spinner from "react-bootstrap/Spinner"
+import { CartContext } from "../context//CartContext"
 
 
 const ItemList = () =>{
@@ -14,13 +15,20 @@ const [loading, setLoading] = useState(false)
     .catch((error) => console.error(error))
     .finally(() => setLoading(false))
   }, [])
-  
+ /*  const PRODUCT_DATA = {
+    name: products.name,
+    id: products.id,
+    price: products.price
+  }
+  console.log(CartContext) */
   return(
   <>
     {loading ? (<Spinner animation="border" variant="secondary" />)
         : (products.map((products)=> <Item key={products.id} product={products} />))  
       }
+      
       </>
   )
+  
 }
 export default ItemList

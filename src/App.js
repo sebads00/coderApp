@@ -12,13 +12,14 @@ import ProductsPage from "./pages/ProductsPage"
 import AboutPage from "./pages/AboutPage"
 import ProductDetailPage from "./pages/ProductDetailPage"
 import CartPage from "./pages/CartPage"
-
+import { CartProvider } from './context/CartContext';
 
 function App() {
 
   return(
     
     <div className="App">
+      <CartProvider>
       <BrowserRouter>
         <NavBar />
         <Routes>
@@ -27,18 +28,19 @@ function App() {
             <Route path="/products" element={<ProductsPage />}/>
               <Route path="/about" element={<AboutPage />}/>
           </Route>
+      
           <Route path="/products">
             <Route index element={<ProductsPage/>}/>
             <Route path=":id" element={<ProductDetailPage/>}/>
             </Route>
           <Route path="/Cart">
             <Route index element={<CartPage/>}/>
-           
             </Route>
         </Routes>
     </BrowserRouter> 
-
-          
+    </CartProvider>
+    
+   
   
     </div>
   );
