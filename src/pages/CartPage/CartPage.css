@@ -1,0 +1,27 @@
+.CartbtnContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 1rem;
+    margin-top: 3rem
+}
+.RemoveContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 1rem
+
+}
+.RemoveContainer button {
+    box-shadow: none;
+}
+.NameContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 1rem;
+    margin-top: 3rem
+}

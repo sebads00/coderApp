@@ -1,10 +1,6 @@
-import { useState } from "react";
-import CartWidget from "../CartWidget"
-import { useNavigate } from "react-router-dom"
 
-const ItemCount = ({stock, initial, onAdd}) => {
-    
-    const [counter, setCounter] = useState(initial);
+
+const ItemCount = ({stock, initial, counter, setCounter}) => {
     
     const sumar = () => { if(counter < stock){
         setCounter ((prevState) => prevState + 1)
@@ -23,8 +19,7 @@ return (
     <button className="CounterBtn"  onClick={restar} variant="success">-</button>
     <p>{counter}</p>
     <button className="CounterBtn" onClick={sumar} variant="success">+</button> 
-</div>
-  <button className="ItemDetailBtn" onClick={()=>onAdd(counter)} ><CartWidget />Agregar al carrito</button> 
+</div> 
 </>
 )
 }

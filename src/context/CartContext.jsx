@@ -1,6 +1,5 @@
-import { createContext, useEffect, useState } from "react";
-import { getProducts } from "../product";
-import { useParams } from "react-router-dom";
+import { createContext, useContext, useState } from "react";
+
 
 
 export const CartContext = createContext({});
@@ -8,20 +7,24 @@ CartContext.displayName = "CartContext"
 
 
 export const CartProvider = ({children}) => {
-    const { id } = useParams();
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(false)
-  
-  
-  useEffect(() => {
-    setLoading(true)
-    getProducts().then((data) => {
-      const prodFilter = data.filter((product) => product.id === Number(id));
-      setProducts(prodFilter[0]);
-      })
-      .finally(() => setLoading(false));
-  }, []);
+   const [cart, setCart] = useState([])
+
+   const addItem = ( item, quantity) => {
+     const newItem = {item, quantity} 
+   console.log("Agregaste: ", newItem);
+    setCart((prevState) => [...prevState, newItem]) 
+  }
+
+  const removeItem = (id) => {
+    setCart((prev) => prev.filter((element) => element.item.id !== id));
+  };
+
+  const deleteAll = () => {
+    setCart([])
+  }
   return(
-<CartContext.Provider value={{products, loading}} >{children}</CartContext.Provider>
+<CartContext.Provider value={{cart, addItem, removeItem, deleteAll}} >{children}</CartContext.Provider>
   )
 };
+
+export const useCart = () => useContext(CartContext)

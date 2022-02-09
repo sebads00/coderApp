@@ -1,6 +1,8 @@
 @import url(./components/ItemCount/ItemCount.css);
 @import url(./components/ItemDetail/ItemDetail.css);
 @import url(./components/NavBar/NavBar.css);
+@import url(./pages/CartPage/CartPage.css);
+
 
 * {
   font-family: 'Kumbh Sans', sans-serif;
@@ -8,6 +10,20 @@
   list-style: none;
   color: none;
 
+}
+button{
+  background-color: var(--Orange);
+  border-radius: 5%;
+  padding: 1rem;
+  border: none;
+  align-items: center;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  box-shadow: -1px 33px 69px -10px var(--Orange);
+  -webkit-box-shadow: -1px 33px 69px -10px var(--Orange);
+  -moz-box-shadow: -1px 33px 69px -10px var(--Orange);
 }
 a {
   text-decoration: none;

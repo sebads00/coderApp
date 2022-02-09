@@ -1,15 +1,19 @@
 import ItemCount from "../ItemCount/ItemCount"
 import { useState } from "react";
 import { useNavigate } from "react-router-dom"
+import { useCart} from "../../context/CartContext"
+import CartWidget from "../CartWidget"
 
 const ItemDetail = ({product}) => {
-    const[quantity, setQuantity] = useState(1);
+    const {addItem} = useCart()
+    const [counter, setCounter] = useState(1)
     const navigate = useNavigate()
-    function onAdd(quantityToAdd) {
-    setQuantity(quantityToAdd)
-    navigate(`/cart`)
-}
-console.log(quantity)
+    
+   const onAdd = () => {
+       addItem(product, counter)
+       navigate(`/Cart`)
+   }
+console.log(counter);
 
     return(
     <>
@@ -22,7 +26,8 @@ console.log(quantity)
                 <p className="ItemDetailDesc">{product.description}</p>
                 <span className="ItemDetailPrice">${product.price}</span>
             <div className="ItemDetailBtnContainer">
-                <ItemCount initial={1} stock={product.stock} onAdd={(quantity) => onAdd(quantity)} />   
+                <ItemCount counter={counter} setCounter={setCounter} initial={1} stock={product.stock} />   
+            <button className="ItemDetailBtn" onClick={onAdd} ><CartWidget/>Agregar al carrito</button>
             </div>    
             </div>
     </div>

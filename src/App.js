@@ -1,17 +1,12 @@
 import './App.css';
 import NavBar from './components/NavBar/NavBar';
-import ItemListContainer from "./components/ItemListContainer"
 import 'bootstrap/dist/css/bootstrap.min.css';
-import ItemCount from "./components/ItemCount/ItemCount"
 import HomePage from "./pages/HomePage"
-import Theme from "./components/Theme"
-import CartWidget from './components/CartWidget';
-import ItemDetail from "./components/ItemDetail/ItemDetail"
 import { BrowserRouter , Routes, Route } from "react-router-dom"
 import ProductsPage from "./pages/ProductsPage"
 import AboutPage from "./pages/AboutPage"
 import ProductDetailPage from "./pages/ProductDetailPage"
-import CartPage from "./pages/CartPage"
+import CartPage from "./pages/CartPage/CartPage"
 import { CartProvider } from './context/CartContext';
 
 function App() {
