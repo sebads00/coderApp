@@ -12,6 +12,8 @@ const ItemDetailPage = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
+  
+  
   useEffect(() => {
     setLoading(true)
     getProducts().then((data) => {
@@ -20,7 +22,7 @@ const ItemDetailPage = () => {
       })
       .finally(() => setLoading(false));
   }, [id]);
-  
+
   return (
       <>
       {loading ? (<Spinner animation="border" variant="secondary" />)

@@ -1,10 +1,16 @@
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import { useCart } from "../context/CartContext";
+import { useNavigate } from "react-router-dom";
 
 const CartWidget = () => {
-    return (
+    const navigate = useNavigate()
+    const {cart} = useCart()
+    console.log(cart.length);
+   return (
     <>
-        <AiOutlineShoppingCart />
+        <AiOutlineShoppingCart onClick={() => navigate(`/Cart`) } /> 
+        <p>{cart.length}</p>
     </>
     )
-}
+} 
 export default CartWidget

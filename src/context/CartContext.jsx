@@ -12,7 +12,14 @@ export const CartProvider = ({children}) => {
    const addItem = ( item, quantity) => {
      const newItem = {item, quantity} 
    console.log("Agregaste: ", newItem);
-    setCart((prevState) => [...prevState, newItem]) 
+   const ProductIn = cart.find(
+     (product) => product.item.id === item.id
+   )
+   if(ProductIn){
+     const newCart = cart.filter((product) => product.item.id !== item.id)
+     ProductIn.quantity += quantity
+     setCart([...newCart, ProductIn])
+   }else(setCart((prevState) => [...prevState, newItem]))
   }
 
   const removeItem = (id) => {

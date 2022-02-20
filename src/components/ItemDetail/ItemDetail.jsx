@@ -3,6 +3,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom"
 import { useCart} from "../../context/CartContext"
 import CartWidget from "../CartWidget"
+import { AiOutlineShoppingCart } from "react-icons/ai";
+
 
 const ItemDetail = ({product}) => {
     const {addItem} = useCart()
@@ -27,7 +29,7 @@ console.log(counter);
                 <span className="ItemDetailPrice">${product.price}</span>
             <div className="ItemDetailBtnContainer">
                 <ItemCount counter={counter} setCounter={setCounter} initial={1} stock={product.stock} />   
-            <button className="ItemDetailBtn" onClick={onAdd} ><CartWidget/>Agregar al carrito</button>
+            <button className="ItemDetailBtn" onClick={onAdd} ><AiOutlineShoppingCart/>Agregar al carrito</button>
             </div>    
             </div>
     </div>
