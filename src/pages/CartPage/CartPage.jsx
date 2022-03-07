@@ -1,47 +1,64 @@
 import { useCart } from "../../context/CartContext";
 import { useNavigate } from "react-router-dom";
-
+import { useState } from "react";
+import { getFirestore } from "../../firebase/index"
 
 
 const CartPage = () => {
-  const navigate = useNavigate()
+  const [name, setName] = useState("")
+  const [phone, setPhone] = useState("")
+  const [mail, setMail] = useState("")
   const {cart, removeItem, deleteAll} = useCart()
-  /* const productIn = cart.find(
 
-    (product) => product.item.id === item.id
+  const navigate = useNavigate()
 
-  );
+  const handleSubmit = (evt) =>{
+    evt.preventDefault()
 
-  if (productIn) {
 
-    //se crea un nuevo carro filtrando por los productos que no estan repetidos
 
-    const newCart = cart.filter(
-
-      (product) => product.item.id !== item.id
-
-    );
-
-    //al producto que se esta queriendo ingresar y esta repetido se le suma la cantidad recibida
-
-    productIn.quantity += quantity ;
-
-    //se setea el cart,  con los productos de newCart que tenia los productos que no se iban a repetir(newcart), mas  el producto modificado. 
-
-    setCart([...newCart, productIn]);
-
-    } else setCart((prevState) => [...prevState, newItem]);
- */
-
-    const totalPrice = () => {
-
-      return cart.reduce((acc, prod) => acc + prod.item.price * prod.quantity, 0)
-    
+    if(!name || !phone || !mail){
+      console.log("llena los campos")
+      return false
     }
-    
-    console.log(totalPrice())
 
-console.log(cart);
+    
+    const newOrder = cart.map((carrito) =>{
+      return (
+        {
+          buyer: {name: name, phone: phone, mail: mail},
+          order:{
+            producto: carrito.item.name,
+            id: carrito.item.id,
+            items: cart.length,
+            total : totalPrice(),
+          }
+      }
+      )
+    }
+    )
+
+  const db = getFirestore()
+  const orderObj = Object.assign({}, newOrder);
+
+  db.collection('orders')
+    .add(orderObj)
+    .then((res)=> {
+      console.log("compra realizada", res.id)
+      console.log(orderObj);
+      
+      navigate(`/CheckOut/${res.id}`)
+    })
+
+  }
+
+
+  
+    const totalPrice = () => {
+      return cart.reduce((acc, prod) => acc + prod.item.price * prod.quantity, 0)
+    }
+
+
   return (
     <>
     <h1>Cart</h1>
@@ -52,6 +69,7 @@ console.log(cart);
 
     cart.map((purchase) => {
       return (
+        <>
         <div className="" key={purchase.item}>
           <div className="NameContainer">
           <p>{purchase.item.name}</p>
@@ -66,6 +84,41 @@ console.log(cart);
           </div>
           <p>${totalPrice()}</p>
         </div>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="name">Nombre
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Nombre"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            ></input>
+            </label>
+          <label htmlFor="phone">Telefono
+          <input
+            type="number"
+            id="phone"
+            name="phone"
+            placeholder="Telefono"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+            ></input>
+            </label>
+            <label>Correo
+          <input
+            type="email"
+            id="mail"
+            name="mail"
+            placeholder="Mail"
+            value={mail}
+            onChange={(e) => setMail(e.target.value)}
+            ></input></label>
+          <input
+            type="submit" value="Finalizar compra"
+            />
+        </form>
+      </>
       );
     } )
 }
@@ -75,18 +128,8 @@ console.log(cart);
     </div>
     </>
   )
-
 };
 export default CartPage
 
-const addItem = (item, quantity) => {
-
-  const newItem = { item, quantity };
-
-  //chequea que el producto no este duplicado y si esta duplicado devuelve el producto 
-
-  
-
-};
 
 

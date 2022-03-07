@@ -1,4 +1,5 @@
 {
+  "homepage":"https://sebads00.github.io/coderApp",
   "name": "coder-app",
   "version": "0.1.0",
   "private": true,
@@ -7,6 +8,7 @@
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
     "bootstrap": "^5.1.3",
+    "dotenv": "^16.0.0",
     "firebase": "^8.10.0",
     "react": "^17.0.2",
     "react-bootstrap": "^2.1.0",
@@ -17,6 +19,8 @@
     "web-vitals": "^2.1.3"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -39,5 +43,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^3.2.3"
   }
 }

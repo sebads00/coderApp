@@ -9,10 +9,11 @@ const NavBar = () => {
     <div className="NavBarContainer">
       <div className="NavBar">
         <div className="NavBarLinks">
-          <h1 className="NavBarLogo"><Link to="/">sneakers</Link></h1>
-              <li><Link to="/">Home</Link></li>
-              <li> <Link to="/products">Products</Link></li>
-              <li><Link to="/about">About</Link></li>
+          <h1 className="NavBarLogo"><Link to="/">GinLovers</Link></h1>
+              <li> <Link to="/products">Productos</Link></li>
+              <li><Link to="/category/importado">Importado</Link></li>
+              <li><Link to="/category/nacional">Nacional</Link></li>
+
           </div>
           <div className="Cart">
               <CartWidget/>

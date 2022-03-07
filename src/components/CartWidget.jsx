@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 const CartWidget = () => {
     const navigate = useNavigate()
     const {cart} = useCart()
-    console.log(cart.length);
    return (
     <>
         <AiOutlineShoppingCart onClick={() => navigate(`/Cart`) } /> 

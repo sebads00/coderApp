@@ -1,7 +1,6 @@
 import ItemDetail from "../components/ItemDetail/ItemDetail";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { getProducts } from "../product";
 import Spinner from "react-bootstrap/Spinner"
 import { useNavigate } from "react-router-dom"
 import { getFirestore } from "../firebase/index"
