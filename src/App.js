@@ -17,9 +17,8 @@ function App() {
       <BrowserRouter>
         <NavBar />
         <Routes>
-          <Route path="/products">
+          <Route path="/coderApp">
             <Route index element={<ProductsPage />} />
-            <Route path="/products" element={<ProductsPage />}/>
           </Route>
     
           <Route path="/products">
@@ -43,6 +42,3 @@ function App() {
   );
 }
 export default App;
-
-
-

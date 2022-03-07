@@ -11,8 +11,9 @@
     justify-content: center;
     align-items: center;
     flex-direction: row;
-    gap: 1rem
-
+    gap: 1rem;
+    margin-left:5rem;
+    grid-area: btn;
 }
 .RemoveContainer button {
     box-shadow: none;
@@ -24,4 +25,41 @@
     flex-direction: row;
     gap: 1rem;
     margin-top: 3rem
+}
+.submit input{
+    box-shadow: none;
+}
+.CartImg {
+    height: 10rem;
+    grid-area: img;
+}
+.CartForm{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 1rem;
+}
+.CartInput{
+    width: 18rem;
+    height: 2.2rem;
+    border: var(--Grey) 2px solid;
+}
+.CartContainer{
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 10rem;
+    grid-template-areas: "img" "name" "qty" "price" "btn";
+    border-bottom: var(--Grey) 2px solid;
+    place-content: center;
+}
+.CartName{
+    grid-area: price;
+}
+.CartPrice{
+    grid-area: price;
+}
+.CartQty{
+    grid-area: qty;
 }

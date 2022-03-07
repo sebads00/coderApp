@@ -70,23 +70,28 @@ const CartPage = () => {
     cart.map((purchase) => {
       return (
         <>
-        <div className="" key={purchase.item}>
+        <div className="CartContainer" key={purchase.item}>
           <div className="NameContainer">
-          <p>{purchase.item.name}</p>
-          <p>{purchase.quantity}</p>
-          <p>${purchase.item.price}</p>
+          <img className="CartImg"  src={purchase.item.img} alt="" />
+          <p className="CartName">{purchase.item.name}</p>
+          <p className="CartQty">{purchase.quantity}</p>
+          <p className="CartPrice">${purchase.item.price}</p>
           </div>
           <div className="RemoveContainer">
-          <img src={purchase.item.img} alt="" />
           <button onClick={()=> removeItem(purchase.item.id)}>
             Eliminar
           </button>
           </div>
-          <p>${totalPrice()}</p>
         </div>
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="name">Nombre
-          <input
+      </>
+      );
+    } )
+}
+    <>
+    <p>Total: ${totalPrice()}</p>
+        <form className="CartForm" onSubmit={handleSubmit}>
+          <label htmlFor="name">
+          <input className="CartInput"
             type="text"
             id="name"
             name="name"
@@ -95,8 +100,8 @@ const CartPage = () => {
             onChange={(e) => setName(e.target.value)}
             ></input>
             </label>
-          <label htmlFor="phone">Telefono
-          <input
+          <label htmlFor="phone">
+          <input className="CartInput"
             type="number"
             id="phone"
             name="phone"
@@ -105,8 +110,8 @@ const CartPage = () => {
             onChange={(e) => setPhone(e.target.value)}
             ></input>
             </label>
-            <label>Correo
-          <input
+            <label>
+          <input className="CartInput"
             type="email"
             id="mail"
             name="mail"
@@ -114,18 +119,15 @@ const CartPage = () => {
             value={mail}
             onChange={(e) => setMail(e.target.value)}
             ></input></label>
-          <input
+          <input className="submit"
             type="submit" value="Finalizar compra"
             />
         </form>
-      </>
-      );
-    } )
-}
     <div className="CartbtnContainer">
     <button onClick={deleteAll}>Eliminar todo</button>
     <button onClick={() => navigate(`/products`)}>Seguir comprando</button>
-    </div>
+    </div>   
+    </>
     </>
   )
 };

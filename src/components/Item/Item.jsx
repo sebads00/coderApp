@@ -5,14 +5,14 @@ import {Link} from "react-router-dom"
 
 const Item = ({product}) => {
 return ( <>
-<Col sm>
-<Card style={{ width: '18rem', borderBottom:'10rem'}}>
-  <Card.Img variant="top" src={product.img}/>
+<Col sm style={{marginBottom: '1rem'}}>
+<Card style={{ width: '18rem'}}>
+  <Card.Img className="CardImg" variant="top" src={product.img}/>
   <Card.Body>
     <Card.Title>{product.name}</Card.Title>
     <Card.Text>
       <>
-        {product.description}
+
         <p>Origen: {product.category} </p>
       </>
     </Card.Text>
