@@ -46,20 +46,21 @@
     border: var(--Grey) 2px solid;
 }
 .CartContainer{
-    display: grid;
-    width: 100%;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: 10rem;
-    grid-template-areas: "img" "name" "qty" "price" "btn";
+    display: flex;
+    align-content: center;  
+    justify-content: center;
     border-bottom: var(--Grey) 2px solid;
-    place-content: center;
+    padding-bottom: 1rem;
 }
-.CartName{
-    grid-area: price;
+input[type="number"]
+{
+    -webkit-appearance: textfield !important;
+    margin: 0;
+    -moz-appearance:textfield !important;
 }
-.CartPrice{
-    grid-area: price;
-}
-.CartQty{
-    grid-area: qty;
+.NoProducts{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem
 }

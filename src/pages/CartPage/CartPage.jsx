@@ -9,8 +9,11 @@ const CartPage = () => {
   const [phone, setPhone] = useState("")
   const [mail, setMail] = useState("")
   const {cart, removeItem, deleteAll} = useCart()
-
   const navigate = useNavigate()
+
+  const totalPrice = () => {
+    return cart.reduce((acc, prod) => acc + prod.item.price * prod.quantity, 0)
+  }
 
   const handleSubmit = (evt) =>{
     evt.preventDefault()
@@ -46,25 +49,26 @@ const CartPage = () => {
     .then((res)=> {
       console.log("compra realizada", res.id)
       console.log(orderObj);
-      
       navigate(`/CheckOut/${res.id}`)
+      deleteAll()
     })
 
   }
 
 
   
-    const totalPrice = () => {
-      return cart.reduce((acc, prod) => acc + prod.item.price * prod.quantity, 0)
-    }
+    
 
 
   return (
     <>
-    <h1>Cart</h1>
-    
 {cart.length === 0 ?
-<p>no hay productos</p>
+<>
+<div className="NoProducts">
+<p>No hay productos</p>
+<button onClick={() => navigate(`/products`)}>Ir a comprar</button>
+</div>
+</>
 : 
 
     cart.map((purchase) => {

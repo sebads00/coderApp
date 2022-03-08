@@ -35,7 +35,7 @@ const ItemDetailPage = () => {
         : 
       <ItemDetail product={products} />
       }
-      <button onClick={() => navigate(`/products`)}>volver</button>
+
       
     </>
   );
